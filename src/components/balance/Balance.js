@@ -67,7 +67,7 @@ const Balance = () => {
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
             return (
-                <div style={{display: "flex", flexDirection: "column", padding: "10px", borderRadius: "5px", backgroundColor: "white"}}>
+                <div style={{boxShadow: "0 0 15px 1px rgba(0,0,0,.3)", display: "flex", flexDirection: "column", padding: "10px", borderRadius: "5px", backgroundColor: "white"}}>
                     <p>Month: {numToMonth(label)}</p>
                     <p>Balance: ${(Math.round(payload[0].value*100)/100).toFixed(2)}</p>
                 </div>

@@ -88,6 +88,7 @@ p {
 form {
   margin: 40px;
   width: 400px;
+  box-shadow: 0 0 15px 1px rgba(0,0,0,.15);
   background-color: white;
   padding: 60px;
   display: flex;
@@ -197,6 +198,7 @@ button {
 .card {
   background-color: white;
   padding: 40px;
+  padding-top: 30px;
   border-radius: 25px;
   width: 46vw;
   height: 41vh;
@@ -206,6 +208,7 @@ button {
 .t-card {
   background-color: white;
   padding: 40px;
+  padding-top: 30px;
   border-radius: 25px;
   width: 50vw;
   height: 100%;

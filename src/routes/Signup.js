@@ -100,7 +100,7 @@ const Signup = () => {
                         alt='logo'
                     />
                 </div>
-                <h2 style={{marginBottom: "15px"}}>Glad to see you here.</h2>
+                <h2 style={{marginBottom: "15px", marginTop: "15px"}}>Glad to see you here.</h2>
                 <input
                     type="text"
                     value={formData.name}
@@ -127,7 +127,7 @@ const Signup = () => {
                 <button type='submit'>Sign up</button>
                 {errors.other.length > 0 && <p className='error'>{errors.other}</p>}
 
-                <p style={{marginTop: "25px"}}>By creating an account, you agree to the Terms of Service and Privacy Policy</p>
+                <p style={{marginTop: "25px", textAlign: "center"}}>By creating an account, you agree to the Terms of Service and Privacy Policy</p>
 
             </form>
             <p style={{marginBottom: "10px"}}>Already have an account? <Link className='link' to="/login">Log in</Link>

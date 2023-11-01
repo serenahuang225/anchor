@@ -3,6 +3,8 @@ import { UserContext } from '../context/UserContext'
 import { motion } from 'framer-motion'
 import categoryColors from '../styles/categoryColors'
 import { Cell, Label, Legend, Pie, PieChart, Tooltip } from 'recharts'
+import Category from "../components/transactions/Category"
+import {v4 as uuid} from 'uuid'
 
 const getColor = (category, categories) => {
     let finalColor = "#ae6bbd"
@@ -17,12 +19,22 @@ const getColor = (category, categories) => {
 const BudgetCategories = () => {
     const {userData} = useContext(UserContext)
 
-    const renderBudgetCats = Object.keys(userData.category_budgets).map(key => {
-        const color = getColor(key, userData.categories)
-        return <div key={key} style={{marginBottom: "20px"}}>
+    const newArray = () => {
+        const arr = Object.keys(userData.category_budgets)
+        arr.push(arr.splice(arr.indexOf("Miscellaneous"), 1)[0])
+        
+        return arr
+    }
+
+    const resArray = newArray().map((key) => ({"category": key, "value": userData.category_budgets[key]}));
+
+
+    const renderBudgetCats = resArray.map(key => {
+        const color = getColor(key.category, userData.categories)
+        return <div key={key.category} style={{marginBottom: "20px"}}>
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
             <div style={{backgroundColor: color, marginRight: "5px", height: "10px", width: "10px", borderRadius: "10px"}} />
-            <p>{key}: <span className='emphasize'>${userData.category_budgets[key].toFixed(2)}</span></p>
+            <p>{key.category}: <span className='emphasize'>${userData.category_budgets[key.category].toFixed(2)}</span></p>
             </div>
 
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
@@ -42,9 +54,6 @@ const BudgetCategories = () => {
             </div>
         </div>
     })
-
-    const resArray = Object.keys(userData.category_budgets).map((key) => ({"category": key, "value": userData.category_budgets[key]}));
-
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
             console.log(label, payload)
@@ -56,19 +65,24 @@ const BudgetCategories = () => {
                 </div>
             );
         }
-      
         return null;
     };
 
+    const renderCategories = () => {
+        return <div style={{display: "flex", marginTop: "20px", flexWrap: "wrap", width: "400px", alignItems: "center", justifyContent: "center"}}>
+            { resArray.map(c => <div style={{marginRight: "15px"}} key={uuid()}><Category smaller={true} category={c.category} /></div> ) }
+        </div>
+    }
+
     return (
         <div className='dashboard'>
-            <div className='t-card' style={{width: "45vw", overflow: "auto", paddingBottom: "20px"}}>
+            <div className='t-card' style={{width: "45vw", overflow: "auto", paddingBottom: "20px", display:"flex", alignItems: "center", flexDirection: "column"}}>
                 <h4 style={{marginBottom: "30px"}}>Monthly Budgets for Each Category</h4>
                 {renderBudgetCats}
             </div>
-            <div className='t-card'>
-                <h4 style={{marginBottom: "30px"}}>Monthly Budget</h4>
-                <PieChart  width={440} height={420} margin={{top: -20}}>
+            <div className='t-card' style={{ display: "flex", flexDirection: "column", alignItems: "center",justifyContent:"center"}}>
+                <h4 style={{marginBottom: "10px"}}>Monthly Budget</h4>
+                <PieChart  width={440} height={380}>
                     <Pie
                         stroke="none"
                         data={resArray}
@@ -82,15 +96,21 @@ const BudgetCategories = () => {
                                 <Cell name={obj.category} fill={getColor(obj.category, userData.categories)} />
                             ))
                         }
-                            <Label
-                                style={{fill: '#116566'}}
-                                value={`Total monthly budget: $${userData.monthlyBudget.toFixed(0)}`} 
-                                position="center" fontSize='20px'
-                            />
+                        <Label
+                            style={{fill: '#116566'}}
+                            value={`Total Monthly Budget:`} 
+                            position='centerBottom' fontSize='20px'
+                        />
+                        <Label
+                            style={{fill: '#116566'}}
+                            value={`$${userData.monthlyBudget.toFixed(0)}`} 
+                            position="centerTop" fontSize='20px'
+                            dy={15}
+                        />
                     </Pie>
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend align="center" margin={{top: 20, bottom: 20}} />
                 </PieChart>
+                {renderCategories()}
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ const Expense = ({amount, date, category, description, payment_method}) => {
 
       <div className='transaction-section-end'>
         <Category category={category} />
-        <p>${(Math.round(amount*100)/100).toFixed(2)}</p>
+        <p>- ${(Math.round(amount*100)/100).toFixed(2)}</p>
       </div>
     </>
   )

@@ -39,7 +39,7 @@ const Chat = () => {
         <motion.div initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}
             className='t-card'
         >
-            <h4>Ask AI a question about your finances:</h4>
+            <h4>Ask AI a Question About Your Finances</h4>
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
                 <textarea rows={1}
                     type="text"
@@ -76,7 +76,7 @@ const Chat = () => {
                     </div>
                 </>
             }
-            <p style={{marginTop: "10px", fontSize: "14px", color: "#888888"}}>AI can make mistakes. Verify information for important decision.</p>
+            <p style={{marginTop: "10px", fontSize: "14px", color: "#888888"}}>AI can make mistakes. Verify information for important decisions.</p>
         </motion.div>
     )
 }

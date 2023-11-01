@@ -47,39 +47,41 @@ const Profile = () => {
     const message = getMessage(userData.name)
 
     return (
-        <div className='profile'>
-            <div style={{boxShadow: "0 0 15px 1px rgba(0,0,0,.1)", display: "flex", flexDirection: "column", backgroundColor: "white", borderRadius: "25px", padding: "40px", width: "fit-content"}}>
-                <Back noStyle={true} />
-                <h2 style={{marginBottom: "20px"}}>{message}</h2>
+        <div>
+            <Back />
+            <div className='dashboard' style={{alignItems: "center", justifyContent: "center"}}>
+                <div style={{boxShadow: "0 0 15px 1px rgba(0,0,0,.1)", display: "flex", flexDirection: "column", backgroundColor: "white", borderRadius: "25px", padding: "40px", width: "fit-content"}}>
+                    <h2 style={{marginBottom: "20px"}}>{message}</h2>
 
-                <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginBottom: "20px", width: "400px", justifyContent: "space-between", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "row", alignItems: "center"}}>
-                    <h5 style={{marginRight: "8px"}}>Email</h5>
-                    <h5>{userData.email}</h5>
+                    <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginBottom: "20px", width: "400px", justifyContent: "space-between", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "row", alignItems: "center"}}>
+                        <h5 style={{marginRight: "8px"}}>Email</h5>
+                        <h5>{userData.email}</h5>
+                    </div>
+                    <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginBottom: "20px", width: "400px", justifyContent: "space-between", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "row", alignItems: "center"}}>
+                        <h5 style={{marginBottom: "2px"}}>Balance</h5>
+                        <h5>${userData.currentBalance.toFixed(2)}</h5>
+                    </div>
+
+                    <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginBottom: "20px", width: "400px", justifyContent: "space-between", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "row", alignItems: "center"}}>
+                        <h5 style={{}}>Monthly spending budget</h5>
+                        <h5>${userData.monthlyBudget.toFixed(2)}</h5>
+                    </div>
+
+                    {/* <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginTop: "5px", marginBottom: "20px", width: "400px", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "column"}}>
+                        <h5 style={{marginBottom: "8px"}}>Categories</h5>
+                        {renderCategories}
+                    </div> */}
+
+                    <motion.button
+                        className='fit-content not-button'
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={handleLogOut}
+                    >
+                        <h4 style={{color: "#e64d7e", marginTop: "40px"}}>Log out</h4>
+                    </motion.button>
+
                 </div>
-                <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginBottom: "20px", width: "400px", justifyContent: "space-between", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "row", alignItems: "center"}}>
-                    <h5 style={{marginBottom: "2px"}}>Balance</h5>
-                    <h5>${userData.currentBalance.toFixed(2)}</h5>
-                </div>
-
-                <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginBottom: "20px", width: "400px", justifyContent: "space-between", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "row", alignItems: "center"}}>
-                    <h5 style={{}}>Monthly spending budget</h5>
-                    <h5>${userData.monthlyBudget.toFixed(2)}</h5>
-                </div>
-
-                {/* <div style={{boxShadow: "5px 5px 15px rgba(0,0,0,.1)", padding: "15px", marginTop: "5px", marginBottom: "20px", width: "400px", borderRadius: "10px", backgroundColor: "#fff", display: "flex", flexDirection: "column"}}>
-                    <h5 style={{marginBottom: "8px"}}>Categories</h5>
-                    {renderCategories}
-                </div> */}
-
-                <motion.button
-                    className='fit-content not-button'
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={handleLogOut}
-                >
-                    <h4 style={{color: "#e64d7e", marginTop: "40px"}}>Log out</h4>
-                </motion.button>
-
             </div>
         </div>
     )

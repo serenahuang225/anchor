@@ -85,8 +85,8 @@ const Budget = () => {
                 </motion.div>
     
                 <div style={{marginTop: "20px", marginBottom: "10px", width: width/2-140, display: "flex", flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <p className='error'>This month's spending</p>
-                    <p className='description'>${budget.totalSpending} spent of ${(Math.round(userData.monthlyBudget*100)/100).toFixed(2)} limit</p>
+                    <p className='error'>This Month's Spending</p>
+                    <p className='description'>${budget.totalSpending.toFixed(2)} spent of ${(Math.round(userData.monthlyBudget*100)/100).toFixed(2)} limit</p>
                 </div>
                 <div style={{display: "flex", flexDirection: "row", alignItems: "center", width: width/2-140, height: "35px", backgroundColor: "#EAEAEA", borderRadius: "5px"}}>
                     <div style={{marginRight: "10px", borderRadius: "5px", backgroundColor: "#116566", height: "35px", width: (width/2-140)*(budget.totalSpending/userData.monthlyBudget)}}></div>
@@ -94,7 +94,7 @@ const Budget = () => {
                 </div>
     
                 <div style={{marginTop: "20px", marginBottom: "10px", width: width/2-140, display: "flex", flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <p className='error'>Monthly spending categories</p>
+                    <p className='error'>Monthly Spending by Category</p>
                 </div>
                 {renderCategories()}
     

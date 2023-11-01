@@ -47,7 +47,7 @@ const ForgotPass = () => {
                         alt='logo'
                     />
                 </div>
-                <h2 style={{marginBottom: "15px"}}>We've got you covered</h2>
+                <h2 style={{marginBottom: "15px", textAlign: "center"}}>We've got you covered.</h2>
                 <input
                     type="text"
                     value={formData.email}

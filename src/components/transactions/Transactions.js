@@ -19,10 +19,11 @@ const Transactions = ({showNav=true, useCustomData=false, customData=null}) => {
                 className='fit-content'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                style={{marginBottom: "10px"}}
             >
                 <Link to="/transactions" className='nav-link'>
                     <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                    <h4 style={{margin: 0}}>Transactions</h4>
+                    <h4>Transactions</h4>
                     <svg
                         xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
                         width="30px" height="30px" id="svg" version="1.1" 
@@ -33,7 +34,7 @@ const Transactions = ({showNav=true, useCustomData=false, customData=null}) => {
                     </div>
                 </Link>
             </motion.div> :
-            <h4 style={{margin: 0}}>Recent Transactions</h4>
+            <h4>Recent Transactions</h4>
             }
 
             <div className='transaction-header'>
@@ -48,7 +49,7 @@ const Transactions = ({showNav=true, useCustomData=false, customData=null}) => {
                 </div>
             </div>
 
-            <div style={{paddingRight: "10px", display: "flex", overflow: "auto", flexDirection: "column", height: "64vh"}}>
+            <div style={{display: "flex", overflow: "auto", flexDirection: "column", height: "64vh"}}>
                 <AnimatePresence> 
                     { transactions && 
                     !useCustomData ? 

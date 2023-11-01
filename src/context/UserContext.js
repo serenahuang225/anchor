@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react"
-import { collection, doc, onSnapshot, query, where } from "firebase/firestore";
+import { collection, doc, onSnapshot, orderBy, query, where } from "firebase/firestore";
 import { AuthContext } from "./AuthContext";
 import { db } from "../firebase";
 
@@ -25,7 +25,7 @@ export function UserContextComponent({children}){
     useEffect(() => {
         if (user && user.uid && userData) {
             let start = new Date(new Date().getFullYear(), 0, 1)
-            const q = query(collection(db, "users", user.uid, "transactions"), where("date", ">", start))
+            const q = query(collection(db, "users", user.uid, "transactions"), where("date", ">", start), orderBy('date', 'desc'))
             const q2 = query(collection(db, "users", user.uid, "balance"), where("year", "==", new Date().getFullYear()))
             const q3 = query(collection(db, "users", user.uid, "budget"), where("month", "==", new Date().getMonth()), where("year", "==", new Date().getFullYear()))
             

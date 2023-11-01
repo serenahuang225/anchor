@@ -47,7 +47,7 @@ const Home = () => {
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", marginLeft: "150px"}}>
                     <img
                         src='/assets/logo-text.png'
-                        style={{height: "64px", width: "fit-content", marginBottom: "20px"}}
+                        style={{height: "86px", width: "fit-content", marginBottom: "20px"}}
                     />
                     <h5>The #1 free personal finance manager</h5>
                     <motion.div
@@ -64,7 +64,7 @@ const Home = () => {
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "100%"}}>
                     <img
                         src='/assets/anchor-rope.png'
-                        style={{height: "504px", width: "fit-content", marginRight: "100px"}}
+                        style={{height: "750px", width: "fit-content", marginRight: "100px"}}
                     />
                 </div>
             

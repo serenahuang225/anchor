@@ -77,7 +77,7 @@ const AddTransaction = () => {
         return (
             <motion.div initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className='card'>
 
-            <div style={{display: "flex", flexDirection: "row", alignItems: "baseline", marginTop: "10px", marginBottom: "30px"}}>
+            <div style={{display: "flex", flexDirection: "row", alignItems: "baseline",marginBottom: "30px"}}>
                 <div className="form__group">
                     <input
                         className='form__field'
@@ -145,7 +145,7 @@ const AddTransaction = () => {
                 style={{marginLeft: "auto"}}
             >
                 <button className='not-button' onClick={handleAddExpense}>
-                    <h4>Add expense</h4>
+                    <h4>Add transaction</h4>
                 </button>
             </motion.div>
     

@@ -29,7 +29,8 @@ const TransactionSort = ({sort, setSort}) => {
     if (transactions) {
         return (
             <motion.div initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className='card'>
-                
+            <h4 style={{marginBottom: "10px"}}>Filter Transactions</h4>
+
             <h5>Sort by</h5>
             <div class="radio-toolbar">
                 {renderCategories}

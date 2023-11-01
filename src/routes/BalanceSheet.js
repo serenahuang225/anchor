@@ -18,7 +18,11 @@ const BalanceSheet = () => {
         let q
 
         if (sort.show==="all_time") {
-            q = query(collection(db, "users", userData.UID, "transactions"), orderBy(sort.sort))
+            if (sort.sort==="date") {
+                q = query(collection(db, "users", userData.UID, "transactions"), orderBy('date', 'desc'))
+            } else {
+                q = query(collection(db, "users", userData.UID, "transactions"), orderBy(sort.sort))
+            }
         } else {
             if (sort.show==='past_year') {
                 start = new Date(new Date().getFullYear(), 0, 1)
@@ -35,7 +39,11 @@ const BalanceSheet = () => {
             } else {
                 start = new Date(new Date().getFullYear(), new Date().getMonth(), 1)
             }
-            q = query(collection(db, "users", userData.UID, "transactions"), where("date", ">", start), orderBy(sort.sort))
+            if (sort.sort==="date") {
+                q = query(collection(db, "users", userData.UID, "transactions"), where("date", ">", start), orderBy('date', 'desc'))
+            } else {
+                q = query(collection(db, "users", userData.UID, "transactions"), where("date", ">", start), orderBy(sort.sort))
+            }
         }
 
         const unsubscribe = onSnapshot(q, (res) => {

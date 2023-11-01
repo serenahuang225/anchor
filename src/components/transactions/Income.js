@@ -11,7 +11,7 @@ const Income = ({amount, date, name}) => {
         </div>
         <div className='transaction-section-end'>
             <Category category={"Income"} />
-            <p>${(Math.round(amount*100)/100).toFixed(2)}</p>
+            <p>+ ${(Math.round(amount*100)/100).toFixed(2)}</p>
         </div>
         </>
     )

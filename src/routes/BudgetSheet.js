@@ -127,9 +127,11 @@ const BudgetSheet = () => {
 
     return (
         <div className='dashboard'>
-            <div style={{width: "50vw"}}>
-                <h4 style={{marginBottom: "20px"}}>This month's spending</h4>
-                <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+            <div style={{width: "50vw", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                <div>
+
+                <h4 style={{marginBottom: "20px"}}>This Month's Spending by Budget Category</h4>
+                <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap", width: "500px"}}>
                 {renderBudgetCategories}
                 </div>
                 <div className='e-card'>
@@ -151,6 +153,7 @@ const BudgetSheet = () => {
                         </div>
                     </Link>
                 </motion.div>
+                </div>
                 </div>
             </div>
             <Chat />

@@ -8,9 +8,6 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
-    margin: 20px;
-    margin-top: 0; /* or margin-top: 5px; */
-    margin-bottom: 0;
 }
 
 .transaction {
@@ -82,6 +79,9 @@
         border-bottom-color: #116566;
     }
 }
+.smallTransactionInput::-webkit-input-placeholder {
+    color: #eaeaea;
+}
 .smallTransactionInput {
     box-shadow: none;
     outline: none;
@@ -94,6 +94,7 @@
     padding-bottom: 5px;
     width: 250px;
     padding-left: 25px;
+    color: black;
 
     &:hover {
         box-shadow: none;
@@ -199,9 +200,6 @@
     &::placeholder {
         color: transparent;
     }
-    &:hover ~.form__label {
-        color: #b0b0b0;
-    }
     &:placeholder-shown ~ .form__label {
         font-size: 1.3rem;
         cursor: text;
@@ -213,10 +211,7 @@
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: #d6d6d6;
-    &:hover {
-        color: #b0b0b0;
-    }
+    color: #eaeaea;
 }
   
 .form__field:focus {
